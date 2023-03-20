@@ -27,7 +27,6 @@ tasks:
       "--fsdp", "full_shard auto_wrap",
       "--fsdp_transformer_layer_cls_to_wrap", "LlamaDecoderLayer",
       "--tf32", True,
-      "--report_to", "wandb",
     ]
     envVars:
       - name: CUDA_DEVICE_ORDER
@@ -40,6 +39,8 @@ tasks:
         value: false
       - name: WANDB_LOG_MODEL
         value: false
+      - name: WANDB_DISABLED
+        value: true
     datasets:
       - mountPath: /data/stanford_alpaca
         source:
